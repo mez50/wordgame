@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Guess The Word</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <button id="back-btn" class="back-btn">← Back</button>
+            <h1>GUESS THE WORD</h1>
+            <div class="level-badge" id="level-badge"></div>
+        </div>
+        <div id="message" class="message hidden"></div>
+        <div id="game-board"></div>
+        <div id="keyboard"></div>
+        <button id="reset-btn" class="reset-btn hidden">Play Again</button>
+    </div>
+    <script src="words.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
