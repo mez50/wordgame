@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    touch-action: manipulation; /* Add this to prevent double-tap zoom */
 }
 
 body {
@@ -13,6 +14,13 @@ body {
     align-items: center;
     min-height: 90vh;
     padding: 10px;
+    touch-action: pan-y; /* Allow vertical scrolling but prevent zoom */
+    -webkit-text-size-adjust: 100%; /* Prevent text size adjustment on rotation */
+}
+
+html {
+    touch-action: manipulation; /* Prevent double-tap zoom on html element */
+    -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
 }
 
 .container {
@@ -97,7 +105,7 @@ h1 {
     font-weight: bold;
     text-transform: uppercase;
     transition: all 0.3s ease;
-    border-radius: 4px;
+    border-radius: 30px; /* Changed from 4px to 12px for rounded look */
 }
 
 .tile.filled {
@@ -421,12 +429,12 @@ h1 {
 }
 
 .back-btn {
-    padding: 6px 10px;
+    padding: 7px 10px;
     background-color: #3a3a3c;
     color: white;
     border: none;
-    border-radius: 6px;
-    font-size: 0.75rem;
+    border-radius: 30px;
+    font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.2s;
     white-space: nowrap;
@@ -473,5 +481,82 @@ h1 {
     .level-badge {
         padding: 4px 8px;
         font-size: 0.6rem;
+    }
+}
+
+.score-display {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 10px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    color: white;
+    letter-spacing: 0.05rem;
+}
+
+.score-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.score-label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: 0.05rem;
+    text-transform: uppercase;
+}
+
+.score-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    transition: transform 0.3s ease;
+}
+
+.score-circle:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 380px) {
+    .score-label {
+        font-size: 0.9rem;
+    }
+    
+    .score-circle {
+        width: 70px;
+        height: 70px;
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-height: 700px) {
+    .score-container {
+        gap: 5px;
+        margin-bottom: 10px;
+    }
+    
+    .score-label {
+        font-size: 0.85rem;
+    }
+    
+    .score-circle {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
     }
 }

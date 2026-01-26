@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
     <title>Guess The Word</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -16,6 +16,10 @@
         <div id="message" class="message hidden"></div>
         <div id="game-board"></div>
         <div id="keyboard"></div>
+        <div class="score-container">
+            <div class="score-label">Your Score:</div>
+            <div class="score-circle" id="score-display">0</div>
+        </div>
         <button id="reset-btn" class="reset-btn hidden">Play Again</button>
     </div>
     <script src="words.js"></script>

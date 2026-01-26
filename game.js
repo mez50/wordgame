@@ -8,6 +8,7 @@ let evaluations = [];
 let keyboardColors = {};
 let currentLevel = 'intermediate';
 let wordLength = 5;
+let totalScore = 0;
 
 const keyboard = [
     ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
@@ -20,6 +21,15 @@ const levelConfig = {
     intermediate: { length: 5, name: 'Intermediate' },
     advance: { length: 6, name: 'Advance' },
     pro: { length: 7, name: 'Pro' }
+};
+
+const scorePoints = {
+    0: 12,  // First row
+    1: 10,  // Second row
+    2: 8,   // Third row
+    3: 6,   // Fourth row
+    4: 4,   // Fifth row
+    5: 2    // Sixth row
 };
 
 // Get level from URL
@@ -49,6 +59,7 @@ async function init() {
     
     createBoard();
     createKeyboard();
+    updateScoreDisplay();
     
     document.addEventListener('keydown', handlePhysicalKeyboard);
     document.getElementById('reset-btn').addEventListener('click', resetGame);
@@ -175,6 +186,20 @@ function updateKeyboardColors(guess, evaluation) {
     });
 }
 
+function updateScoreDisplay() {
+    const scoreEl = document.getElementById('score-display');
+    if (scoreEl) {
+        scoreEl.textContent = totalScore;
+    }
+}
+
+function addScore(rowNumber) {
+    const points = scorePoints[rowNumber] || 0;
+    totalScore += points;
+    updateScoreDisplay();
+    return points;
+}
+
 function showMessage(text, duration = 2000) {
     const messageEl = document.getElementById('message');
     messageEl.textContent = text;
@@ -209,8 +234,9 @@ function submitGuess() {
     updateKeyboardColors(currentGuess, evaluation);
     
     if (currentGuess === targetWord) {
+        const pointsEarned = addScore(currentRow);
         setTimeout(() => {
-            showMessage('Congratulations! 🎉', 5000);
+            showMessage(`Congratulations! +${pointsEarned} points 🎉`, 3000);
             gameOver = true;
             document.getElementById('reset-btn').classList.remove('hidden');
         }, 500);
