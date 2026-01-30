@@ -241,7 +241,7 @@ html {
         inset 0 -3px 0 rgba(0, 0, 0, 0.2);
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-family: 'Comic Sans MS', cursive;
+    font-family: 'Nunito', 'Fredoka', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
 }
 
 .play-btn:hover {

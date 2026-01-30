@@ -6,7 +6,8 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; */
+    font-family: 'Nunito', 'Fredoka', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
     background-color: #121213;
     color: #ffffff;
     display: flex;
