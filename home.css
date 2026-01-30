@@ -3,10 +3,21 @@
     padding: 0;
     box-sizing: border-box;
     touch-action: manipulation;
+    font-style: normal;
+}
+
+.site-title,
+.site-tagline,
+.game-title,
+.game-description,
+.play-btn,
+.home-footer p {
+    font-style: normal !important;
 }
 
 body {
-    font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', cursive, sans-serif;
+    font-family: 'Nunito', 'Fredoka', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+    font-style: normal;
     background: linear-gradient(135deg, #FFB347 0%, #FFCC99 50%, #FFD9B3 100%);
     min-height: 100vh;
     display: flex;
@@ -17,6 +28,7 @@ body {
     -webkit-text-size-adjust: 100%;
     position: relative;
     overflow-x: hidden;
+    font-weight: 200;
 }
 
 /* Decorative background elements */
